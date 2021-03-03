@@ -13,23 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.utils
 
-import androidx.compose.ui.graphics.Color
+import android.content.Context
+import android.util.DisplayMetrics
 
-val colorPrimary = Color(0xFFF5F5F5)
-val colorPrimaryDark = Color(0xFFF5F5F5)
-val colorAccent = Color(0xFF222C2F)
+object Utils {
 
-val colorTextH6 = Color(0xFF222C2F)
-val colorTextSubTitle2 = Color(0xFF28354C)
-val colorTextBody1 = Color(0xFF333333)
-val colorTextBody2 = Color(0xFF83889A)
-
-val colorButtonBg = Color(0XFF89B929)
-val colorButtonText = Color(0xFFF5F5F5)
-
-val colorBoxBg = Color(0xFFF5F5F5)
-val colorBorder = Color(0xFFEBECF1)
-
-val colorMainBg = Color(0xFFFDFDFD)
+    fun convertPixelsToDp(context: Context, px: Float): Int {
+        val resources = context.resources
+        val metrics = resources.displayMetrics
+        val dp =
+            px / (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+        return dp.toInt()
+    }
+}
